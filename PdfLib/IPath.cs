@@ -8,8 +8,10 @@ namespace PdfLib
 {
     public interface IPath
     {
-        Point currenPoint { get; }
-        double lineWidth { get; set; }
+        Point CurrenPointPath { get; }
+        Point FirstPointPath { get; }
+        bool Closed { get; }
+        double LineWidth { get; set; }
 
         void MoveTo(double x, double y);
 
@@ -20,22 +22,24 @@ namespace PdfLib
         void CurveV(double x2, double y2, double x3, double y3);
 
         void CurveY(double x1, double y1, double x3, double y3);
-        
+
         void ClosePath();
         
         void Rectangle(double x, double y, double width, double height);
 
 
         // --- Path-painting operators
-        string Stroke();
+        void Stroke();
+        void ClosePathAndStroke();
+        
+        void Fill_UsingNZWN();
+        void Fill_UsingEOR();
 
-        string ClosePathAndStroke();
-        string Fill();
-        string FillAndStroke_UsingNZWN();
-        string FillAndStroke_UsingEOR();
+        void FillAndStroke_UsingNZWN();
+        void FillAndStroke_UsingEOR();
 
-        string CloseFillAndStroke_UsingNZWN();
-        string CloseFillAndStroke_UsingEOR();
+        void CloseFillAndStroke_UsingNZWN();
+        void CloseFillAndStroke_UsingEOR();
 
     }
 }

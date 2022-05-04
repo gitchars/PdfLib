@@ -20,13 +20,15 @@ namespace PdfLib
         public const string CloseStrokePath = "s";
         
         public const string FillPath_usingNZWN = "f";
-        public const string FillPath_usingeor = "f*";
+        public const string FillPath_usingEOR = "f*";
         
         public const string FillAndStroke_usingNZWN = "B";
-        public const string FillAndStroke_usingeor = "B*";
+        public const string FillAndStroke_usingEOR = "B*";
 
         public const string CloseFillAndStroke_usingNZWN = "b";
-        public const string CloseFillAndStroke_usingeor = "b*";
+        public const string CloseFillAndStroke_usingEOR = "b*";
+
+        public const string EndOfLine = "\n";
 
     }
 }

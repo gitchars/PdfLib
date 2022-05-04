@@ -8,7 +8,16 @@ namespace PdfLib
 {
     public class Point
     {
-        public double x { set; get; }
-        public double y { set; get; }
+        private double x;
+        private double y;
+
+        public double X { set { x = value; } get { return this.x; } }
+        public double Y { set { y = value; } get { return this.y; } }
+
+        public Point( double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
     }
 }
