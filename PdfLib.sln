@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfLib", "PdfLib\PdfLib.csproj", "{A13126DF-15C1-4879-8548-84C5E625551B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A13126DF-15C1-4879-8548-84C5E625551B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13126DF-15C1-4879-8548-84C5E625551B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13126DF-15C1-4879-8548-84C5E625551B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13126DF-15C1-4879-8548-84C5E625551B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D0B54A1-33EA-45E3-AF36-E3DE52482F68}
+	EndGlobalSection
+EndGlobal
