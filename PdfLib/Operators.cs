@@ -17,7 +17,7 @@ namespace PdfLib
         public const string Rectangle = "re";
 
         public const string StrokePath = "S";
-        public const string CloseStrokePath = "s";
+        public const string ClosePathStroke = "s";
         
         public const string FillPath_usingNZWN = "f";
         public const string FillPath_usingEOR = "f*";

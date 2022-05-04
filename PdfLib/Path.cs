@@ -10,7 +10,7 @@ namespace PdfLib
     {
         private Point currenPoint;
         private Point firstPoint;
-        private bool closed = false;
+        private bool closed = true;
         private string content = string.Empty;
 
         public Point CurrenPointPath
@@ -27,10 +27,15 @@ namespace PdfLib
         }
         public double LineWidth { get; set; }
 
+        public string Content
+        {
+            get { return this.content; }
+        }
+
 
         public void MoveTo(double x, double y)
         {
-            this.content += $"{x}, {y} " + Operators.BeginPath + Operators.EndOfLine;
+            this.content += $"{x} {y} " + Operators.BeginPath + Operators.EndOfLine;
             currenPoint = new Point(x, y);
             firstPoint = currenPoint;
             this.closed = false;
@@ -41,7 +46,7 @@ namespace PdfLib
             {
                 throw new Exception("A path must start with the m or re operator.");
             }
-            this.content += $"{x}, {y} " + Operators.Straightline + Operators.EndOfLine;
+            this.content += $"{x} {y} " + Operators.Straightline + Operators.EndOfLine;
             currenPoint = new Point(x, y); ;
         }
 
@@ -51,7 +56,7 @@ namespace PdfLib
             {
                 throw new Exception("A path must start with the m or re operator.");
             }
-            this.content += $"{x1}, {y1}, {x2}, {y2}, {x3}, {y3} " + Operators.CurveC + Operators.EndOfLine;
+            this.content += $"{x1} {y1} {x2} {y2} {x3} {y3} " + Operators.CurveC + Operators.EndOfLine;
             currenPoint = new Point(x3, y3);
         }
 
@@ -61,7 +66,7 @@ namespace PdfLib
             {
                 throw new Exception("A path must start with the m or re operator.");
             }
-            this.content += $"{x}, {y}, {x3}, {y3} " + oper + Operators.EndOfLine;
+            this.content += $"{x} {y} {x3} {y3} " + oper + Operators.EndOfLine;
             currenPoint = new Point(x3, y3);
         }
 
@@ -79,7 +84,7 @@ namespace PdfLib
         {
             if (!this.closed)
             {
-                this.LineTo(firstPoint.X, firstPoint.Y);
+                this.content += Operators.ClosePath + Operators.EndOfLine;
                 currenPoint = firstPoint;
                 this.closed = true;
             }
@@ -87,7 +92,7 @@ namespace PdfLib
 
         public void Rectangle(double x, double y, double width, double height)
         {
-            this.content += $"{x}, {y}, {width}, {height} " + Operators.Rectangle + Operators.EndOfLine;
+            this.content += $"{x} {y} {width} {height} " + Operators.Rectangle + Operators.EndOfLine;
             currenPoint = new Point(x, y);
             firstPoint = currenPoint;
             this.closed = true;
@@ -105,8 +110,12 @@ namespace PdfLib
 
         public void ClosePathAndStroke()
         {
-            this.ClosePath();
-            this.Stroke();
+            // todo: Add Line width
+            // todo: Add Line color
+            // todo: Add Line Dash Pattern
+            currenPoint = firstPoint;
+            this.closed = true;
+            this.content += Operators.ClosePathStroke + "\n";
         }
         public void Fill_UsingNZWN()
         {
@@ -138,13 +147,23 @@ namespace PdfLib
 
         public void CloseFillAndStroke_UsingNZWN()
         {
-            this.ClosePath();
-            this.FillAndStroke_UsingNZWN();
+            // todo: Add Line width
+            // todo: Add Line color
+            // todo: Add Line Dash Pattern
+            // todo: Add Backcolor
+            currenPoint = firstPoint;
+            this.closed = true;
+            this.content += Operators.CloseFillAndStroke_usingNZWN + "\n";
         }
         public void CloseFillAndStroke_UsingEOR()
         {
-            this.ClosePath();
-            this.FillAndStroke_UsingEOR();
+            // todo: Add Line width
+            // todo: Add Line color
+            // todo: Add Line Dash Pattern
+            // todo: Add Backcolor
+            currenPoint = firstPoint;
+            this.closed = true;
+            this.content += Operators.CloseFillAndStroke_usingEOR + "\n";
         }
 
 
