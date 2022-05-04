@@ -30,5 +30,6 @@ namespace PdfLib
 
         public const string EndOfLine = "\n";
 
+        public const string LineWidth = "w";
     }
 }

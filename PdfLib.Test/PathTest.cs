@@ -406,9 +406,10 @@ namespace PdfLib.Test
         public void Path_ContentValid_Stroke()
         {
             // Arrange
-            string contentExpected = "S\n";
+            string contentExpected = "4 w\nS\n";
             Path myPath = new Path();
             // Action
+            myPath.LineWidth = 4;
             myPath.Stroke();
             // Assert
             Assert.AreEqual(myPath.Content.Replace("\n", ""), contentExpected.Replace("\n", ""));
@@ -422,11 +423,13 @@ namespace PdfLib.Test
         public void Path_ContentValidIsClosed_ClosePathAndStroke()
         {
             // Arrange
-            string contentExpected = "s\n";
+            string contentExpected = "4 w\ns\n";
             Path myPath = new Path();
             // Action
+            myPath.LineWidth = 4;
             myPath.ClosePathAndStroke();
             // Assert
+            Assert.AreEqual(myPath.LineWidth, 4);
             Assert.AreEqual(myPath.Content.Replace("\n", ""), contentExpected.Replace("\n", ""));
         }
         #endregion
@@ -463,11 +466,13 @@ namespace PdfLib.Test
         public void Path_ContentValid_FillAndStroke_UsingNZWN()
         {
             // Arrange
-            string contentExpected = "B\n";
+            string contentExpected = "4 w\nB\n";
             Path myPath = new Path();
             // Action
+            myPath.LineWidth = 4;
             myPath.FillAndStroke_UsingNZWN();
             // Assert
+            Assert.AreEqual(myPath.LineWidth, 4);
             Assert.AreEqual(myPath.Content.Replace("\n", ""), contentExpected.Replace("\n", ""));
         }
 
@@ -476,11 +481,13 @@ namespace PdfLib.Test
         public void Path_ContentValid_FillAndStroke_UsingEOR()
         {
             // Arrange
-            string contentExpected = "B*\n";
+            string contentExpected = "4 w\nB*\n";
             Path myPath = new Path();
             // Action
+            myPath.LineWidth = 4;
             myPath.FillAndStroke_UsingEOR();
             // Assert
+            Assert.AreEqual(myPath.LineWidth, 4);
             Assert.AreEqual(myPath.Content.Replace("\n", ""), contentExpected.Replace("\n", ""));
         }
 
@@ -489,11 +496,13 @@ namespace PdfLib.Test
         public void Path_ContentValid_CloseFillAndStroke_UsingNZWN()
         {
             // Arrange
-            string contentExpected = "b\n";
+            string contentExpected = "4 w\nb\n";
             Path myPath = new Path();
             // Action
+            myPath.LineWidth = 4;
             myPath.CloseFillAndStroke_UsingNZWN();
             // Assert
+            Assert.AreEqual(myPath.LineWidth, 4);
             Assert.AreEqual(myPath.Content.Replace("\n", ""), contentExpected.Replace("\n", ""));
         }
 
@@ -516,11 +525,13 @@ namespace PdfLib.Test
         public void Path_ContentValid_CloseFillAndStroke_UsingEOR()
         {
             // Arrange
-            string contentExpected = "b*\n";
+            string contentExpected = "4 w\nb*\n";
             Path myPath = new Path();
             // Action
+            myPath.LineWidth = 4;
             myPath.CloseFillAndStroke_UsingEOR();
             // Assert
+            Assert.AreEqual(myPath.LineWidth, 4);
             Assert.AreEqual(myPath.Content.Replace("\n", ""), contentExpected.Replace("\n", ""));
         }
 

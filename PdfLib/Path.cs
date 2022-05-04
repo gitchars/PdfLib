@@ -102,7 +102,7 @@ namespace PdfLib
         // --- Path-painting operators
         public void Stroke()
         {
-            // todo: Add Line width
+            this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
             // todo: Add Line color
             // todo: Add Line Dash Pattern
             this.content += Operators.StrokePath + "\n";
@@ -110,7 +110,7 @@ namespace PdfLib
 
         public void ClosePathAndStroke()
         {
-            // todo: Add Line width
+            this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
             // todo: Add Line color
             // todo: Add Line Dash Pattern
             currenPoint = firstPoint;
@@ -130,7 +130,7 @@ namespace PdfLib
 
         public void FillAndStroke_UsingNZWN()
         {
-            // todo: Add Line width
+            this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
             // todo: Add Line color
             // todo: Add Line Dash Pattern
             // todo: Add Backcolor
@@ -138,7 +138,7 @@ namespace PdfLib
         }
         public void FillAndStroke_UsingEOR()
         {
-            // todo: Add Line width
+            this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
             // todo: Add Line color
             // todo: Add Line Dash Pattern
             // todo: Add Backcolor
@@ -147,7 +147,7 @@ namespace PdfLib
 
         public void CloseFillAndStroke_UsingNZWN()
         {
-            // todo: Add Line width
+            this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
             // todo: Add Line color
             // todo: Add Line Dash Pattern
             // todo: Add Backcolor
@@ -157,7 +157,7 @@ namespace PdfLib
         }
         public void CloseFillAndStroke_UsingEOR()
         {
-            // todo: Add Line width
+            this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
             // todo: Add Line color
             // todo: Add Line Dash Pattern
             // todo: Add Backcolor
