@@ -45,6 +45,7 @@
     <Compile Include="IPath.cs" />
     <Compile Include="IPdf.cs" />
     <Compile Include="IText.cs" />
+    <Compile Include="Operators.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

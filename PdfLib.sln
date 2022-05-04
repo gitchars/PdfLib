@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfLib", "PdfLib\PdfLib.csproj", "{A13126DF-15C1-4879-8548-84C5E625551B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfLib.Test", "PdfLib.Test\PdfLib.Test.csproj", "{B090CD93-2BC7-4DF8-AB48-CA11154FCF25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A13126DF-15C1-4879-8548-84C5E625551B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A13126DF-15C1-4879-8548-84C5E625551B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A13126DF-15C1-4879-8548-84C5E625551B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B090CD93-2BC7-4DF8-AB48-CA11154FCF25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B090CD93-2BC7-4DF8-AB48-CA11154FCF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B090CD93-2BC7-4DF8-AB48-CA11154FCF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B090CD93-2BC7-4DF8-AB48-CA11154FCF25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
