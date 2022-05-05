@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace PdfLib
 {
     static class Operators
@@ -31,5 +32,9 @@ namespace PdfLib
         public const string EndOfLine = "\n";
 
         public const string LineWidth = "w";
+
+        public const string LineColor = "RG";
+
+        public const string FillColor = "rg";
     }
 }

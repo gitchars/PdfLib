@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace PdfLib
 {
     public interface IPath
@@ -12,6 +13,10 @@ namespace PdfLib
         Point FirstPointPath { get; }
         bool Closed { get; }
         double LineWidth { get; set; }
+
+        AvailableColors LineColor { get; set; }
+
+        AvailableColors FillColor { get; set; }
 
         void MoveTo(double x, double y);
 

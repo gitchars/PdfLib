@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace PdfLib
 {
@@ -12,6 +13,9 @@ namespace PdfLib
         private Point firstPoint;
         private bool closed = true;
         private string content = string.Empty;
+        private double lineWidth = 1;
+        private AvailableColors lineColor = AvailableColors.Black;
+        private AvailableColors fillColor = AvailableColors.White;
 
         public Point CurrenPointPath
         {
@@ -25,14 +29,27 @@ namespace PdfLib
         {
             get { return closed; }
         }
-        public double LineWidth { get; set; }
+        public double LineWidth {
+            get { return lineWidth; }
+            set {lineWidth = value;} 
+        }
+        public AvailableColors LineColor
+        {
+            get { return lineColor; }
+            set { lineColor = value; }
+        }
+        public AvailableColors FillColor
+        {
+            get { return fillColor; }
+            set { fillColor = value; }
+        }
 
         public string Content
         {
             get { return this.content; }
         }
 
-
+        
         public void MoveTo(double x, double y)
         {
             this.content += $"{x} {y} " + Operators.BeginPath + Operators.EndOfLine;
@@ -103,7 +120,7 @@ namespace PdfLib
         public void Stroke()
         {
             this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
-            // todo: Add Line color
+            this.content += $"{this.lineColor.GetPattern()} " + Operators.LineColor + Operators.EndOfLine;
             // todo: Add Line Dash Pattern
             this.content += Operators.StrokePath + "\n";
         }
@@ -111,7 +128,7 @@ namespace PdfLib
         public void ClosePathAndStroke()
         {
             this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
-            // todo: Add Line color
+            this.content += $"{this.lineColor.GetPattern()} " + Operators.LineColor + Operators.EndOfLine;
             // todo: Add Line Dash Pattern
             currenPoint = firstPoint;
             this.closed = true;
@@ -119,38 +136,38 @@ namespace PdfLib
         }
         public void Fill_UsingNZWN()
         {
-            // todo: Add Backcolor
+            this.content += $"{this.fillColor.GetPattern()} " + Operators.FillColor + Operators.EndOfLine;
             this.content += Operators.FillPath_usingNZWN + Operators.EndOfLine;
         }
         public void Fill_UsingEOR()
         {
-            // todo: Add Backcolor
+            this.content += $"{this.fillColor.GetPattern()} " + Operators.FillColor + Operators.EndOfLine;
             this.content += Operators.FillPath_usingEOR + Operators.EndOfLine;
         }
 
         public void FillAndStroke_UsingNZWN()
         {
             this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
-            // todo: Add Line color
+            this.content += $"{this.lineColor.GetPattern()} " + Operators.LineColor + Operators.EndOfLine;
+            this.content += $"{this.fillColor.GetPattern()} " + Operators.FillColor + Operators.EndOfLine;
             // todo: Add Line Dash Pattern
-            // todo: Add Backcolor
             this.content += Operators.FillAndStroke_usingNZWN + "\n";
         }
         public void FillAndStroke_UsingEOR()
         {
             this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
-            // todo: Add Line color
+            this.content += $"{this.lineColor.GetPattern()} " + Operators.LineColor + Operators.EndOfLine;
+            this.content += $"{this.fillColor.GetPattern()} " + Operators.FillColor + Operators.EndOfLine;
             // todo: Add Line Dash Pattern
-            // todo: Add Backcolor
             this.content += Operators.FillAndStroke_usingEOR + "\n";
         }
 
         public void CloseFillAndStroke_UsingNZWN()
         {
             this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
-            // todo: Add Line color
+            this.content += $"{this.lineColor.GetPattern()} " + Operators.LineColor + Operators.EndOfLine;
+            this.content += $"{this.fillColor.GetPattern()} " + Operators.FillColor + Operators.EndOfLine;
             // todo: Add Line Dash Pattern
-            // todo: Add Backcolor
             currenPoint = firstPoint;
             this.closed = true;
             this.content += Operators.CloseFillAndStroke_usingNZWN + "\n";
@@ -158,9 +175,9 @@ namespace PdfLib
         public void CloseFillAndStroke_UsingEOR()
         {
             this.content += $"{this.LineWidth} " + Operators.LineWidth + Operators.EndOfLine;
-            // todo: Add Line color
+            this.content += $"{this.lineColor.GetPattern()} " + Operators.LineColor + Operators.EndOfLine;
+            this.content += $"{this.fillColor.GetPattern()} " + Operators.FillColor + Operators.EndOfLine;
             // todo: Add Line Dash Pattern
-            // todo: Add Backcolor
             currenPoint = firstPoint;
             this.closed = true;
             this.content += Operators.CloseFillAndStroke_usingEOR + "\n";
